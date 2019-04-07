@@ -1,3 +1,1 @@
-function call()
-  print("Test")
-end
+function call() return print("Test") end
