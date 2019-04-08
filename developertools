@@ -3,7 +3,7 @@ function lua()
 end
 
 function viewHardDisk()
-  print(table.concat(fs.list("/"))
+  print(table.concat(fs.list("/")))
 end
 
 function runLua(name)
