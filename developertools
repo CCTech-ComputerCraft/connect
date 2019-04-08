@@ -1,14 +1,14 @@
 local window = require("/PowerOS/sys/apis/windows")
 
 function lua()
-  shell.run("/rom/programs/lua")
+  shell.run("/rom/programs/lua.lua")
 end
 
 function paint(name)
   if not name == nil then
     local function paintProg()
       return window.new(function()
-        shell.run("/rom/programs/fun/advaned/fun /PowerOS/usr/home/workspace/"..name))
+        shell.run("/rom/programs/fun/advaned/paint.lua /PowerOS/usr/home/workspace/"..name))
       end, 4, 4, 35, 12)
     end
     table.insert(kernel.programs, paintProg())
