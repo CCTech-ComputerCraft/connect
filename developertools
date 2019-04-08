@@ -1,0 +1,23 @@
+local window = require("/PowerOS/sys/apis/windows")
+
+function lua()
+  shell.run("/rom/programs/lua")
+end
+
+function paint(name)
+  local function paintProg()
+    return window.new(function()
+      shell.run("/rom/programs/fun/advaned/fun /PowerOS/usr/home/workspace/"..name))
+    end, 4, 4, 35, 12)
+  end
+
+  table.insert(kernel.programs, paintProg())
+end
+
+function viewHardDisk()
+  print(table.concat(fs.list("/"))
+end
+
+function runLua(name)
+  shell.run("/PowerOS/usr/home/workspace/"..name)
+end
