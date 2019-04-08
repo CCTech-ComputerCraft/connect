@@ -1,10 +1,10 @@
 local window = require("/PowerOS/sys/apis/windows")
 
-function lua()
+local function lua()
   shell.run("/rom/programs/lua.lua")
 end
 
-function paint(name)
+local function paint(name)
   if not name == nil then
     local function paintProg()
       return window.new(function()
@@ -19,11 +19,11 @@ function paint(name)
   end
 end
 
-function viewHardDisk()
+local function viewHardDisk()
   print(table.concat(fs.list("/"))
 end
 
-function runLua(name)
+local function runLua(name)
   if not name == nil then
     if fs.exists("/PowerOS/usr/home/workspace"..name) then
       shell.run("/PowerOS/usr/home/workspace/"..name)
