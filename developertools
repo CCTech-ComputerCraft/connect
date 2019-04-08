@@ -5,13 +5,18 @@ function lua()
 end
 
 function paint(name)
-  local function paintProg()
-    return window.new(function()
-      shell.run("/rom/programs/fun/advaned/fun /PowerOS/usr/home/workspace/"..name))
-    end, 4, 4, 35, 12)
+  if not name == nil then
+    local function paintProg()
+      return window.new(function()
+        shell.run("/rom/programs/fun/advaned/fun /PowerOS/usr/home/workspace/"..name))
+      end, 4, 4, 35, 12)
+    end
+    table.insert(kernel.programs, paintProg())
+  else
+    term.setTextColor(colors.red)
+    print("No name defined!")
+    term.setTextColor(colors.white)
   end
-
-  table.insert(kernel.programs, paintProg())
 end
 
 function viewHardDisk()
@@ -19,5 +24,16 @@ function viewHardDisk()
 end
 
 function runLua(name)
-  shell.run("/PowerOS/usr/home/workspace/"..name)
+  if not name == nil then
+    if fs.exists("/PowerOS/usr/home/workspace"..name) then
+      shell.run("/PowerOS/usr/home/workspace/"..name)
+    else
+      term.setTextColor(colors.red)
+      print("/PowerOS/usr/home/workspace/"..name.." does not exist!")
+      term.setTextColor(colors.white)
+    end
+  else
+    term.setTextColor(colors.red)
+    print("No name defined!")
+  end
 end
